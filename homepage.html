@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script defer type="module" src="update.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/homepage.css">
+    <title>Roll Your Sheet</title>
+    <style>
+        .content2{
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 510px;
+            height: 400px;
+            background-image: url(tarrasquefala.png);
+            background-size: 130% 100%;
+            position: relative;
+            right: 100%;
+        }
+        main{
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: absolute;
+            top: 30%;
+        }
+        .profile {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 180px;
+            z-index: 10;
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu ul li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dropdown-menu ul li a:hover {
+            background-color: #f0f0f0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo - placeholder</div>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Criações da Comunidade</a>
+            <a href="#">Minhas Criações</a>
+            <div class="search-container">
+                <img src="assets/lupa.png" alt="Ícone de Pesquisa" class="search-icon">
+                <input type="text" class="search-bar" placeholder="Pesquisar...">
+            </div>
+            <p id="userName"></p>
+            <div class="profile">
+                <img id="userProfilePicture" alt="">
+                <div class="dropdown-menu" id="profileDropdown">
+                    <ul>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">Preferências</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Email: <span id="userEmail">exemplo@teste.com</span></a></li>
+                        <li><a href="#">Sair</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    <div class="content">
+        <h1>Crie seu Personagem</h1>
+        <img src="assets/mais.png" alt="">
+    </div>
+    <div class="content2">
+
+    </div>
+</main>
+</body>
+</html>

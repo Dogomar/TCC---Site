@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <script defer type="module" src="script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login D&D</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      position: relative;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-size: cover;
+      background-position: center;
+      animation: slideshow 20s infinite ease-in-out;
+      filter: brightness(0.2);
+    }
+
+    @keyframes slideshow {
+      0%   { background-image: url('assetlogin/bg1.jpg'); }
+      33%  { background-image: url('assetlogin/bg2.jpg'); }
+      66%  { background-image: url('assetlogin/bg3.jpg'); }
+      100% { background-image: url('assetlogin/bg4.jpg'); }
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      filter: brightness(1) !important;
+    }
+
+    .left, .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .left {
+      flex-direction: column;
+      background: linear-gradient(to bottom, rgba(92, 34, 13, 0.65), rgba(138, 76, 0, 0.65));
+      color: white;
+      text-align: center;
+    }
+
+    .left img {
+      width: 350px;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .right {
+      flex-direction: column;
+      background: linear-gradient(to bottom, rgba(65, 18, 0, 0.85), rgba(46, 31, 13, 0.85));
+      color: white;
+      border-radius: 20px;
+      margin: 3rem;
+    }
+
+    .right h1 {
+      margin-bottom: 2rem;
+    }
+
+    input {
+      width: 80%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn {
+      background-color: #2979ff;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .links {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .links a {
+      color: #2979ff;
+      text-decoration: none;
+    }
+
+    .social {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social img {
+      width: 40px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <div class="left">
+      <img src="assetlogin/Taverna do Tarrasque.png" alt="Mascote"/>
+      <h2>Nunca foi tão fácil jogar d&amp;d!</h2>
+    </div>
+    <div class="right">
+      <h1>Seja Bem-Vindo(a)!</h1>
+      <input type="text" placeholder="Nome" />
+      <input type="password" placeholder="Senha" />
+      <button class="btn">Entrar</button>
+      <div class="links">
+        Não possui Conta? faça seu Cadastro <a href="#">clicando aqui</a>
+        <br><br>
+        Também faça Login com:
+      </div>
+      <div class="social">
+        <button class="google-btn" id="google-login-btn"><img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google" /></button>
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
