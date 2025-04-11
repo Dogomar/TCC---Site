@@ -2,6 +2,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import { getFirestore } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "./firebase";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,6 +21,7 @@ const firebaseConfig = {
   measurementId: "G-3L8HGJE94N"
 };
 
+export const db = getFirestore(app);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
@@ -58,3 +63,24 @@ document.addEventListener("DOMContentLoaded", () => {
         dropdown.style.display = "none";
     });
 });
+
+document.getElementById("botao-criar-ficha").addEventListener("click", criarFicha);
+
+async function criarFicha() {
+    try {
+      const fichaRef = collection(db, "ficha");
+      await addDoc(fichaRef, {
+        antecedente: "",
+        atributos: [0, 0, 0, 0, 0, 0],
+        classe: "",
+        nível: 0,
+        pericias: Array(10).fill(false), // ou quantas você tiver
+        raca: "",
+        sub_classe: "",
+        sub_raca: ""
+      });
+      alert("Ficha criada com sucesso!");
+    } catch (e) {
+      console.error("Erro ao criar ficha: ", e);
+    }
+  }
