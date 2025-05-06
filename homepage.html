@@ -25,8 +25,8 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            position: absolute;
-            top: 30%;
+            position: relative ;
+            margin-top: 200px;
         }
         .profile {
             position: relative;
@@ -77,7 +77,7 @@
         <nav class="nav">
             <a href="#">Home</a>
             <a href="#">Criações da Comunidade</a>
-            <a href="#">Minhas Criações</a>
+            <button id="myCreation">Minhas criações</button>
             <div class="search-container">
                 <img src="assets/lupa.png" alt="Ícone de Pesquisa" class="search-icon">
                 <input type="text" class="search-bar" placeholder="Pesquisar...">
@@ -102,11 +102,38 @@
     <main>
     <div class="content">
         <h1>Crie seu Personagem</h1>
-        <a href="fichamaker.html"><img src="assets/mais.png" alt="" id="botao-criar-ficha"></a>
+        <img src="assets/mais.png" alt="Criar Ficha" id="botao-criar-ficha" style="cursor: pointer;">
     </div>
+
+    <div id="form-container" style="display: none; margin-top: 20px;">
+        <h2>Adicionar Novo Personagem</h2>
+        <form id="novaFichaForm">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required /><br /><br />
+          <label for="raca">Escolha uma raça:</label>
+          <select id="raca" name="raca" required>
+            <option value="human">Humano</option>
+            <option value="half-orc">Meio-orc</option>
+            <option value="elf">Elfo</option>
+            <option value="half-Elf">Meio elfo</option>
+            <option value="halfling">Halfling</option>
+            <option value="gnome">Gnomo</option>
+            <option value="draconato">Draconato</option>
+            <option value="tiefling">Tiefling</option>
+          </select><br /><br />
+          <button type="submit">Adicionar</button>
+        </form>
+      </div>
+
+      <div id="minhas-criacoes-container" style="display: none; margin-top: 20px;">
+        <h2>Minhas Criações</h2>
+        <ul id="lista-fichas"></ul>
+      </div>
+      
     <div class="content2">
 
     </div>
 </main>
+<script defer type="module" src="fichaForm.js"></script>
 </body>
 </html>

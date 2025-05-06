@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Gerenciador de Produtos</h1>
+
+  <h2>Adicionar Novo Produto</h2>
+  <form id="novaFichaForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required /><br /><br />
+    <label for="races">escolha uma raça:</label>
+    <select list="races" id="raca" name="fodase" required>
+      <option value="human">Humano</option>
+      <option value="half-orc">Meio-orc</option>
+      <option value="elf">Elfo</option>
+      <option value="half-Elf">Meio elfo</option>
+      <option value="halfling">Halfling</option>
+      <option value="gnome">gnomo</option>
+      <option value="draconato">draconato</option>
+      <option value="tiefling">tiefling</option>
+    </select><br /><br />
+
+    <button type="submit">Adicionar</button>
+  </form>
+  <script type="module" src="update.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script>
+    // Inicialize o Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBkbq_aHTbQvB4kOOSaPih374adE3JPmKg",
+      authDomain: "tcc---taverna-do-tarrasque.firebaseapp.com",
+      projectId: "tcc---taverna-do-tarrasque",
+      storageBucket: "tcc---taverna-do-tarrasque.firebasestorage.app",
+      messagingSenderId: "891131598809",
+      appId: "1:891131598809:web:ecc3903e7577c62a676bc8",
+      measurementId: "G-3L8HGJE94N"
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const novaFichaForm = document.getElementById('novaFichaForm');
+
+    novaFichaForm.addEventListener('submit', (event) => {
+      event.preventDefault(); // Evita o envio padrão do formulário
+
+      const nomeFicha = document.getElementById('nome').value;
+      const raca = document.getElementById('raca').value;
+      
+      // Adiciona um novo documento à coleção 'produtos'
+      db.collection('ficha')
+        .add({
+          nome: nomeFicha,
+          raça: raca,
+          // Você pode adicionar mais campos aqui, como preço, descrição, etc.
+          timestamp: firebase.firestore.FieldValue.serverTimestamp() // Adiciona um timestamp automático
+        })
+        .then((docRef) => {
+          console.log('Documento escrito com ID: ', docRef.id);
+          alert('Ficha criada com sucesso!');
+          novoProdutoForm.reset(); // Limpa o formulário
+        })
+        .catch((error) => {
+          console.error('Erro ao adicionar documento: ', error);
+          alert('Erro ao criar a ficha.');
+        });
+    });
+  </script>
+</body>
+</html>
+
